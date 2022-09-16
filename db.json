@@ -6,7 +6,7 @@
       "price": 2100.234,
       "article": "T1",
       "quantity": 1,
-      "category": "Мужские"
+      "category": "female"
     },
     {
       "image": "2.jpg",
@@ -14,7 +14,7 @@
       "price": 3150.123,
       "article": "T2",
       "quantity": 13,
-      "category": "Женские"
+      "category": "female"
     },
     {
       "image": "3.jpg",
@@ -22,7 +22,7 @@
       "price": 4200.51524,
       "article": "T3",
       "quantity": 2,
-      "category": "Женские"
+      "category": "male"
     },
     {
       "image": "4.jpg",
@@ -30,7 +30,7 @@
       "price": 5300.1245512,
       "article": "T4",
       "quantity": 15,
-      "category": "Мужские"
+      "category": "male"
     },
     {
       "image": "5.jpg",
@@ -38,7 +38,7 @@
       "price": 6500.3522314,
       "article": "T5",
       "quantity": 6,
-      "category": "Женские"
+      "category": "female"
     },
     {
       "image": "6.jpg",
@@ -46,7 +46,7 @@
       "price": 8700.4124123,
       "article": "T6",
       "quantity": 100,
-      "category": "Женские"
+      "category": "male"
     }
   ]
 }

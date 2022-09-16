@@ -7,7 +7,9 @@
           v-for="product in PRODUCTS"
           :key="product.article"
       >
-        <CatalogItem :product="product"/>
+        <CatalogItem
+            @addToCart="addToCard"
+            :product="product"/>
       </div>
     </div>
   </div>
@@ -15,7 +17,7 @@
 
 <script>
 import {mapGetters, mapActions} from 'vuex';
-import CatalogItem from "@/components/CatalogItem/CatalogItem";
+import CatalogItem from "@/components/Catalog/CatalogItem/CatalogItem";
 
 export default {
   name: "CatalogList",
@@ -25,11 +27,16 @@ export default {
   methods: {
     ...mapActions([
         'GET_PRODUCTS_FROM_API',
+        'ADD_PRODUCT_TO_CARD',
     ]),
+    addToCard(product) {
+      this.ADD_PRODUCT_TO_CARD(product);
+    }
   },
   computed: {
     ...mapGetters([
         'PRODUCTS',
+        'CART',
     ]),
   },
   mounted() {
@@ -37,7 +44,7 @@ export default {
     .then((data) => {
       console.log(data)
     });
-  }
+  },
 }
 </script>
 

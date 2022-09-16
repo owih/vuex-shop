@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CatalogList from "@/components/CatalogList/CatalogList";
+import CatalogList from "@/components/Catalog/CatalogList/CatalogList";
 
 export default {
   name: 'HomeView',
