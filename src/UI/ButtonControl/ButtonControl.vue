@@ -25,9 +25,16 @@ export default {
     }
   }
 </style>
-<style>
-  .btn-disable {
+<style lang="scss">
+  .btn-disabled {
     opacity: 0.6;
     pointer-events: none;
+  }
+  .red-theme {
+    background-color: crimson;
+    color: white;
+    &:hover {
+      background-color: #c0392b;
+    }
   }
 </style>

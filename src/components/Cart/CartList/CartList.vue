@@ -8,7 +8,7 @@
         <CartItem :product="product" />
       </div>
     </div>
-    <div v-else>
+    <div :class="$style.empty" v-else>
       Cart is empty :(
     </div>
   </div>
@@ -44,10 +44,17 @@ export default {
 
 <style module lang="scss">
   .root {
+    position: relative;
+    height: 100%;
     .item {
       &:not(:last-child) {
         margin-bottom: 16px;
       }
+    }
+    .empty {
+      padding: 16px;
+      font-size: 28px;
+      font-weight: bold;
     }
   }
 </style>

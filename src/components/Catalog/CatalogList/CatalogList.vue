@@ -40,10 +40,7 @@ export default {
     ]),
   },
   mounted() {
-    this.GET_PRODUCTS_FROM_API()
-    .then((data) => {
-      console.log(data)
-    });
+    this.GET_PRODUCTS_FROM_API();
   },
 }
 </script>

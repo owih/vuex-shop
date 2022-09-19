@@ -14,13 +14,13 @@
       {{ product.article }}
       </span>
       <div :class="$style.available">
-        В наличии: {{ product.quantity }}
+        In stock: {{ product.quantity }}
       </div>
       <div :class="$style.price">
         {{ product.price.toFixed(2) }} $
       </div>
       <ButtonControl @click="clickHandler" :class="{
-        'btn-disable': !productAvailable,
+        'btn-disabled': !productAvailable,
       }">
         <span v-if="productAvailable">
           Add to cart
@@ -69,7 +69,6 @@ export default {
     checkIsAvailableCurrentProduct() {
       if (this.CHECK_IS_PRODUCT_AVAILABLE.length) {
         this.productAvailable = !this.CHECK_IS_PRODUCT_AVAILABLE.filter((product) => this.product.article === product.article).length;
-        console.log(this.productAvailable);
       }
     }
   },

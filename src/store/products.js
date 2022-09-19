@@ -15,6 +15,14 @@ export default {
     },
     CHECK_IS_PRODUCT_AVAILABLE(state) {
       return state.cart.filter((product) => product.quantity === product.inCart);
+    },
+    CART_TOTAL_PRICE(state) {
+      let totalPrice = 0;
+      if (!state.cart.length) return;
+      state.cart.forEach((product) => {
+        totalPrice += product.price * product.inCart;
+      })
+      return totalPrice;
     }
   },
 
@@ -39,6 +47,27 @@ export default {
         state.cart.push(product);
         product.inCart = 1;
       }
+    },
+    INCREASE_QUANTITY(state, article) {
+      state.cart.forEach((product) => {
+        if (product.article === article) product.inCart++;
+      })
+    },
+    DECREASE_QUANTITY(state, article) {
+      state.cart.forEach((product) => {
+        if (product.article === article) product.inCart--;
+      })
+    },
+    REMOVE_PRODUCT(state, article) {
+      state.cart.forEach((product, idx) => {
+        if (product.article === article) {
+          delete state.cart[idx].inCart;
+          state.cart.splice(idx, 1);
+        }
+      })
+    },
+    CLEAR_CART(state) {
+      state.cart.splice(0);
     }
   },
 
@@ -56,6 +85,18 @@ export default {
     },
     ADD_PRODUCT_TO_CARD({commit}, product) {
       commit('SET_CART', product);
+    },
+    INCREASE_CART_PRODUCT_QUANTITY({commit}, article) {
+      commit('INCREASE_QUANTITY', article);
+    },
+    DECREASE_CART_PRODUCT_QUANTITY({commit}, article) {
+      commit('DECREASE_QUANTITY', article);
+    },
+    REMOVE_PRODUCT_FROM_CART({commit}, article) {
+      commit('REMOVE_PRODUCT', article);
+    },
+    CLEAR_CART({commit}) {
+      commit('CLEAR_CART');
     }
   },
 }

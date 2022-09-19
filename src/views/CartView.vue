@@ -9,7 +9,7 @@
           </div>
         </div>
         <div :class="$style.panel">
-
+          <CartPanel />
         </div>
       </div>
     </div>
@@ -17,11 +17,12 @@
 </template>
 <script>
 import CartList from "@/components/Cart/CartList/CartList";
+import CartPanel from "@/components/Cart/CartPanel/CartPanel";
 
 export default {
   name: 'CartView',
   components: {
-    CartList,
+    CartList, CartPanel
   }
 }
 </script>
@@ -47,6 +48,7 @@ export default {
     }
     .panel {
       padding: 16px;
+      flex: 1 0 auto;
     }
   }
 </style>

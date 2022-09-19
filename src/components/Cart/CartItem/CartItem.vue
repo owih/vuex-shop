@@ -11,12 +11,12 @@
         In stock: {{ product.quantity }}
       </div>
       <div :class="$style.counter">
-        <CounterField :quantity="product.inCart" :maxQuantity="product.quantity"/>
+        <CounterField @increaseQuantity="increaseQuantity" @decreaseQuantity="decreaseQuantity" :quantity="product.inCart" :maxQuantity="product.quantity"/>
       </div>
       <div :class="$style.price">
-        {{ Number(product.price.toFixed(2)) }} $ per one
+        <strong>{{ Number(product.price.toFixed(2)) }} $</strong> per one
       </div>
-      <div :class="$style.remove">
+      <div :class="$style.remove" @click="removeProductFromCart">
         <i class="icon icon-clear"></i>
       </div>
     </div>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
+
 export default {
   name: "CartItem",
   props: {
@@ -31,6 +33,22 @@ export default {
       type: Object,
       required: true,
     }
+  },
+  methods: {
+    ...mapActions([
+        'INCREASE_CART_PRODUCT_QUANTITY',
+        'DECREASE_CART_PRODUCT_QUANTITY',
+        'REMOVE_PRODUCT_FROM_CART',
+    ]),
+    increaseQuantity() {
+      this.INCREASE_CART_PRODUCT_QUANTITY(this.product.article);
+    },
+    decreaseQuantity() {
+      this.DECREASE_CART_PRODUCT_QUANTITY(this.product.article);
+    },
+    removeProductFromCart() {
+      this.REMOVE_PRODUCT_FROM_CART(this.product.article);
+    },
   }
 }
 </script>
@@ -48,7 +66,7 @@ export default {
       margin: -8px;
     }
     .name {
-      padding: 8px;
+      padding: 8px 32px 8px 8px;
       font-weight: bold;
       flex: 0 0 100%;
     }
@@ -61,10 +79,10 @@ export default {
       padding: 8px;
       font-size: 14px;
       color: #7f8c8d;
+      flex: 0 0 100px;
     }
     .price {
       padding: 8px;
-      font-weight: bold;
       font-size: 18px;
       flex: 0 0 auto;
     }
@@ -80,6 +98,9 @@ export default {
       top: 16px;
       font-size: 14px;
       cursor: pointer;
+      .icon {
+        pointer-events: none;
+      }
       &:hover {
         color: #f39c12;
       }

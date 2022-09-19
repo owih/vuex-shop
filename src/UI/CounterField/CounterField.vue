@@ -10,8 +10,8 @@
       <i class="icon icon-minus"></i>
     </button>
     <input :class="$style.input"
-         :value="localQuantity"
-           @input="updateInput"
+           :value="localQuantity"
+           disabled
     >
     <button
         :class="[$style.counter, {
@@ -46,16 +46,15 @@ export default {
     this.localQuantity = this.quantity;
   },
   methods: {
-    updateInput(event) {
-      this.$emit('quantityUpdate', event.target.value);
-    },
     increaseValue() {
       this.localQuantity++;
+      this.$emit('increaseQuantity');
     },
     decreaseValue() {
       this.localQuantity--;
+      this.$emit('decreaseQuantity');
     }
-  }
+  },
 }
 </script>
 
@@ -79,6 +78,9 @@ export default {
       padding: 3px 6px 0;
       font-size: 14px;
       pointer-events: none;
+      &:disabled {
+        background-color: white;
+      }
     }
   }
 </style>
