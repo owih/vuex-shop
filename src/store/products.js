@@ -1,4 +1,5 @@
-import axios from "axios";
+// import axios from "axios";
+import {data} from "@/data/index.js";
 
 export default {
   state: () => ({
@@ -73,15 +74,18 @@ export default {
 
   actions: {
     GET_PRODUCTS_FROM_API({commit}) {
-      return axios('http://localhost:3000/products', {
-        method: 'GET',
-      })
-        .then((res) => {
-          commit('SET_PRODUCTS_TO_STATE', res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // Используем локальные данные для github pages
+      commit('SET_PRODUCTS_TO_STATE', data.products);
+
+      // return axios('http://localhost:3000/products', {
+      //   method: 'GET',
+      // })
+      //   .then((res) => {
+      //     commit('SET_PRODUCTS_TO_STATE', res.data);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
     },
     ADD_PRODUCT_TO_CARD({commit}, product) {
       commit('SET_CART', product);

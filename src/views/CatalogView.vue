@@ -1,6 +1,8 @@
 <template>
-  <div class="container">
-    <CatalogList />
+  <div :class="$style.root">
+    <div class="container">
+      <CatalogList />
+    </div>
   </div>
 </template>
 
@@ -14,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style module lang="scss">
+.root {
+  padding-bottom: 60px;
+}
+</style>

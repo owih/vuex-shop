@@ -1,0 +1,52 @@
+export const data = {
+  "products": [
+    {
+      "image": "1.jpg",
+      "name": "tshirt with some expansive car",
+      "price": 2100.234,
+      "article": "T1",
+      "quantity": 1,
+      "category": "female"
+    },
+    {
+      "image": "2.jpg",
+      "name": "Razor keyboard 100500XXX Ultimate version",
+      "price": 3150.123,
+      "article": "T2",
+      "quantity": 13,
+      "category": "female"
+    },
+    {
+      "image": "3.jpg",
+      "name": "Blink Dagger for AM",
+      "price": 4200.51524,
+      "article": "T3",
+      "quantity": 2,
+      "category": "male"
+    },
+    {
+      "image": "4.jpg",
+      "name": "JS programming course 'LEARN JS IN 30 SECONDS'",
+      "price": 5300.1245512,
+      "article": "T4",
+      "quantity": 15,
+      "category": "male"
+    },
+    {
+      "image": "5.jpg",
+      "name": "Burger",
+      "price": 6500.3522314,
+      "article": "T5",
+      "quantity": 6,
+      "category": "female"
+    },
+    {
+      "image": "6.jpg",
+      "name": "Mazda RX8",
+      "price": 8700.4124123,
+      "article": "T6",
+      "quantity": 100,
+      "category": "male"
+    }
+  ]
+}

@@ -47,6 +47,11 @@ export default {
 
 <style module lang="scss">
   .root {
+    max-width: 400px;
+    margin: 0 auto;
+    @media (min-width: 768px) {
+      max-width: unset;
+    }
     .row {
       display: flex;
       flex-wrap: wrap;
@@ -54,7 +59,13 @@ export default {
     }
     .col {
       padding: 16px;
-      flex: 0 0 33.333333%;
+      flex: 0 0 100%;
+      @media (min-width: 768px) {
+        flex: 0 0 50%;
+      }
+      @media (min-width: 992px) {
+        flex: 0 0 33.33333%;
+      }
     }
   }
 </style>

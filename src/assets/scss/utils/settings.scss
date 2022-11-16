@@ -54,9 +54,6 @@ body.dark {
   @include media-breakpoint-up(lg) {
     max-width: $lg;
   }
-  @include media-breakpoint-up(xl) {
-    max-width: $xl;
-  }
 }
 h1 {
   font-size: $h1-font-size;
